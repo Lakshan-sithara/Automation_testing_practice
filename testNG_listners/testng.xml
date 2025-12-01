@@ -1,0 +1,11 @@
+<suite name="All Test Suite">
+
+    <listeners>
+        <listener class-name="listner.modifyListner"/>
+    </listeners>
+    <test name="My Tests">
+        <classes>
+            <class name="testCases.TC_001"/>
+        </classes>
+    </test>
+</suite>
