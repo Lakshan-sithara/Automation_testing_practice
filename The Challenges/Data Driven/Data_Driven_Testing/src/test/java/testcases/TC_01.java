@@ -10,7 +10,7 @@ import pages.homePage;
 import pages.loggedInHomePage;
 import verify.compair;
 
-public class TC_001 extends initiateDriver {
+public class TC_01 extends initiateDriver {
 
     boolean homePageUrl;
 
