@@ -17,6 +17,10 @@ public class loggedInHomePage {
     boolean verifyUsernameResult;
     boolean accountDeletedResult;
 
+    //Refactored selecters
+    By deleteaccount_text_xpath = By.xpath("//a[text()=' Delete Account']");
+    By continue_button_xpath = By.xpath("//a[text()='Continue']");
+
     public loggedInHomePage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -29,7 +33,7 @@ public class loggedInHomePage {
 
     public void clickDeleteButton(){
 
-        WebElement deleteButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//a[text()=' Delete Account']"))));
+        WebElement deleteButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(deleteaccount_text_xpath)));
         deleteButton.click();
     }
 
@@ -37,7 +41,7 @@ public class loggedInHomePage {
          accountDeletedResult = compair.verifyAccountDeletedText(driver);
          Assert.assertTrue(accountDeletedResult);
 
-         driver.findElement(By.xpath("//a[text()='Continue']")).click();
+         driver.findElement(continue_button_xpath).click();
     }
 
 }
