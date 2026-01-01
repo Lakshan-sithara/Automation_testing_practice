@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import verify.compair;
 
 import java.time.Duration;
 
@@ -12,12 +14,11 @@ public class LoginPage {
 
     public WebDriver driver;
     WebDriverWait wait;
+    boolean visibleText;
 
     //Refactored selecters
     By loginButton = By.xpath("//a[@href='/login']");
-    By email = By.name("email");
-    By password = By.name("password");
-    By submitButton = By.xpath("//button[@type='submit']");
+
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -31,10 +32,17 @@ public class LoginPage {
         WebElement loginlink = wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginlink.click();
 
+        // assertion
+        visibleText = compair.verifyNewUserSignupVisible(driver,"New User Signup!");
+        Assert.assertTrue(visibleText);
 
-        driver.findElement(email).sendKeys("hiiii");
-        driver.findElement(password).sendKeys("1234");
-        driver.findElement(submitButton).click();
+        //sign up
+        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("abc");
+        driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys("aa@aa.mm");
+        driver.findElement(By.xpath("//button[text()='Signup']")).click();
+
+        //check 'Enter Account Information' isVisible
+
 
     }
 
