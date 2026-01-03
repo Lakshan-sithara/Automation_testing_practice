@@ -68,4 +68,9 @@ public class compair {
 
     }
 
+    public static boolean verifyEmailOrPasswordIncorrectErrorText(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//p[text()='Your email or password is incorrect!']")).isDisplayed();
+        return result;
+    }
+
 }

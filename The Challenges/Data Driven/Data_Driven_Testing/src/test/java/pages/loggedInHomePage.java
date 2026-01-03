@@ -1,5 +1,6 @@
 package pages;
 
+import library.propertieReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import verify.compair;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class loggedInHomePage {
@@ -18,10 +20,10 @@ public class loggedInHomePage {
     boolean accountDeletedResult;
 
     //Refactored selecters
-    By deleteaccount_text_xpath = By.xpath("//a[@href='/delete_account']");
-    By continue_button_xpath = By.xpath("//a[text()='Continue']");
+    By deleteaccount_text_xpath = By.xpath(propertieReader.appConfigReader("deleteaccount_text_xpath"));
+    By continue_button_xpath = By.xpath(propertieReader.appConfigReader("continue_btn_xpath"));
 
-    public loggedInHomePage(WebDriver driver){
+    public loggedInHomePage(WebDriver driver) throws IOException {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
