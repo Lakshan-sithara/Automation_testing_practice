@@ -27,6 +27,14 @@ public class compair {
 
     }
 
+    public static boolean verifyLoginToYourAccountText(WebDriver driver){
+        boolean result = false;
+        if (driver.findElement(By.xpath("//h2[text()='Login to your account']")).isDisplayed()){
+            result = true;
+        }
+        return result;
+    }
+
     public static boolean verifyEnterAccountInformationTextVisible(WebDriver driver){
 
         boolean result = driver.findElement(By.xpath("//b[text()='Enter Account Information']")).isDisplayed();

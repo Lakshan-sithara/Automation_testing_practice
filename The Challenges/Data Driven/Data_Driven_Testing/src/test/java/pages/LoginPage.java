@@ -17,7 +17,13 @@ public class LoginPage {
     boolean visibleText;
 
     //Refactored selecters
-    By loginButton = By.xpath("//a[@href='/login']");
+
+    By username_textbox_xpath = By.xpath("//input[@type='text']");
+    By password_textbox_xpath = By.xpath("//input[@data-qa='signup-email']");
+    By signup_button_xpath = By.xpath("//button[text()='Signup']");
+    By login_username_textbox_xpath = By.xpath("//input[@data-qa='login-email']");
+    By login_password_textbox_xpath = By.xpath("//input[@data-qa='login-password']");
+    By login_button_xpath = By.xpath("//button[@data-qa='login-button']");
 
 
     public LoginPage(WebDriver driver) {
@@ -26,25 +32,42 @@ public class LoginPage {
     }
 
 
-    public void login(String standardUser, String secretSauce) {
 
 
-        WebElement loginlink = wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-        loginlink.click();
-
-        // assertion
+    public void checkNewUserSignupVisibility(){
         visibleText = compair.verifyNewUserSignupVisible(driver,"New User Signup!");
         Assert.assertTrue(visibleText);
-
-        //sign up
-        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("abc");
-        driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys("aa@aa.mm");
-        driver.findElement(By.xpath("//button[text()='Signup']")).click();
-
-        //check 'Enter Account Information' isVisible
-
-
     }
+
+    public void verifyLoginPage(){
+        boolean result = compair.verifyLoginToYourAccountText(driver);
+        Assert.assertTrue(result);
+    }
+
+    public void enterUsername(){
+        driver.findElement(username_textbox_xpath).sendKeys("abc");
+    }
+
+    public void enterPassword(){
+        driver.findElement(password_textbox_xpath).sendKeys("aa@aa.mm");
+    }
+
+    public void clickSignUpButton(){
+        driver.findElement(signup_button_xpath).click();
+    }
+
+    public void enterEmailOnlogin(){
+        driver.findElement(login_username_textbox_xpath).sendKeys("aa@aa.mm");
+    }
+
+    public void enterPasswordOnlogin(){
+        driver.findElement(login_password_textbox_xpath).sendKeys("123");
+    }
+
+    public void clickLoginButton(){
+        driver.findElement(login_button_xpath).click();
+    }
+
 
 
 

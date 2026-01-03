@@ -18,7 +18,7 @@ public class loggedInHomePage {
     boolean accountDeletedResult;
 
     //Refactored selecters
-    By deleteaccount_text_xpath = By.xpath("//a[text()=' Delete Account']");
+    By deleteaccount_text_xpath = By.xpath("//a[@href='/delete_account']");
     By continue_button_xpath = By.xpath("//a[text()='Continue']");
 
     public loggedInHomePage(WebDriver driver){

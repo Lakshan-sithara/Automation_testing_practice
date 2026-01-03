@@ -3,6 +3,7 @@ package base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -15,13 +16,19 @@ public class initiateDriver {
     @BeforeMethod
     public void startBrowser(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+
+
+        ChromeOptions options = new ChromeOptions();
+
+        // Typical Windows path:
+        options.setBinary("C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe");
+        driver = new ChromeDriver(options);
         driver.get("https://automationexercise.com/");
         driver.manage().window().maximize();
     }
 
     @AfterMethod
     public void closeDriver(){
-        driver.close();
+        //driver.close();
     }
 }

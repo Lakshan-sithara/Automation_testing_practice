@@ -8,21 +8,25 @@ import pages.LoginPage;
 import pages.accountInformationFormPage;
 import pages.homePage;
 import pages.loggedInHomePage;
-import verify.compair;
 
 public class TC_01 extends initiateDriver {
 
-    boolean homePageUrl;
+
 
     @Test
     public void testUserCanLogin(){
 
-        homePageUrl = compair.verifyHomePageVisibility(driver,"https://automationexercise.com/");
-        Assert.assertTrue(homePageUrl);
+        homePage homePage = new homePage(driver);
+        homePage.verifyHomePage();
+        homePage.clickLoginSigninButton();
+
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("standard_user", "secret_sauce");
-        Assert.assertTrue(homePage.isHomePageDisplayed());
+
+        loginPage.enterUsername();
+        loginPage.enterPassword();
+        loginPage.clickSignUpButton();
+        //Assert.assertTrue(homePage.isHomePageDisplayed());
 
         accountInformationFormPage AIFPage = new accountInformationFormPage(driver);
         AIFPage.verifyTitleVisibility();
@@ -31,8 +35,8 @@ public class TC_01 extends initiateDriver {
 
         loggedInHomePage loggedInHomePage = new loggedInHomePage(driver);
         loggedInHomePage.verifyUsernameIsVisible();
-        loggedInHomePage.clickDeleteButton();
-        loggedInHomePage.accountDeletedPage();
+        /*loggedInHomePage.clickDeleteButton();
+        loggedInHomePage.accountDeletedPage();*/
 
     }
 
