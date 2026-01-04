@@ -78,4 +78,9 @@ public class compair {
         return result;
     }
 
+    public static boolean verifySucsessMessageInContactUs(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//div[@class='status alert alert-success']")).isDisplayed();
+        return result;
+    }
+
 }

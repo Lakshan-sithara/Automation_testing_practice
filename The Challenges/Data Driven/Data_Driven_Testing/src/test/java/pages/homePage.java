@@ -18,6 +18,7 @@ public class homePage {
     boolean homePageUrl;
     WebDriverWait wait;
     By loginButton = By.xpath(propertieReader.appConfigReader("loginButton_xpath"));
+    By contactUsButton = By.xpath(propertieReader.appConfigReader("contactUs_button_xpath"));
 
     public homePage(WebDriver driver) throws IOException {
         this.driver = driver;
@@ -32,6 +33,11 @@ public class homePage {
     public void verifyHomePage() throws IOException {
         homePageUrl = compair.verifyHomePageVisibility(driver,propertieReader.appConfigReader("App_url"));
         Assert.assertTrue(homePageUrl);
+    }
+
+    public void clickContactUsButton(){
+        WebElement contactUsBtn = wait.until(ExpectedConditions.elementToBeClickable(contactUsButton));
+        contactUsBtn.click();
     }
 
 
