@@ -22,6 +22,7 @@ public class loggedInHomePage {
     //Refactored selecters
     By deleteaccount_text_xpath = By.xpath(propertieReader.appConfigReader("deleteaccount_text_xpath"));
     By continue_button_xpath = By.xpath(propertieReader.appConfigReader("continue_btn_xpath"));
+    By logout_button_xpath =  By.xpath(propertieReader.appConfigReader("logout_button_xpath"));
 
     public loggedInHomePage(WebDriver driver) throws IOException {
         this.driver = driver;
@@ -44,6 +45,11 @@ public class loggedInHomePage {
          Assert.assertTrue(accountDeletedResult);
 
          driver.findElement(continue_button_xpath).click();
+    }
+
+    public void clickLogoutButton(){
+        WebElement logOutButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(logout_button_xpath)));
+        logOutButton.click();
     }
 
 }
