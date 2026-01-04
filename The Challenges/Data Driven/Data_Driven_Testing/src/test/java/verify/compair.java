@@ -83,4 +83,12 @@ public class compair {
         return result;
     }
 
+    public static boolean verifyTestCasesPage(WebDriver driver, String url){
+        boolean result = false;
+        if (driver.getCurrentUrl().equalsIgnoreCase(url)){
+            result = true;
+        }
+        return result;
+    }
+
 }

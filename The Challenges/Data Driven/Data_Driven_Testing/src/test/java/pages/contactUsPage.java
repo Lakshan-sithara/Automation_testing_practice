@@ -16,16 +16,16 @@ public class contactUsPage {
 
     WebDriver driver;
 
-    By nameTextBoxName = By.name("name");
-    By emailTextBoxName = By.name("email");
-    By enterSubjectName = By.name("subject");
-    By enterMessageName = By.name("message");
-    By fileUploadXpath = By.xpath("//input[@type='file']");
-    By submitButtonXpath = By.xpath("//input[@type='submit']");
-    By homeButtonXpath = By.xpath("//a[@class='btn btn-success']");
+    By nameTextBoxName = By.name(propertieReader.appConfigReader("nameTextBox_Name"));
+    By emailTextBoxName = By.name(propertieReader.appConfigReader("emailTextBox_Name"));
+    By enterSubjectName = By.name(propertieReader.appConfigReader("enterSubject_Name"));
+    By enterMessageName = By.name(propertieReader.appConfigReader("enterMessage_Name"));
+    By fileUploadXpath = By.xpath(propertieReader.appConfigReader("fileUpload_Xpath"));
+    By submitButtonXpath = By.xpath(propertieReader.appConfigReader("submitButton_Xpath"));
+    By homeButtonXpath = By.xpath(propertieReader.appConfigReader("homeButton_Xpath"));
 
 
-    public contactUsPage(WebDriver driver){
+    public contactUsPage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
 

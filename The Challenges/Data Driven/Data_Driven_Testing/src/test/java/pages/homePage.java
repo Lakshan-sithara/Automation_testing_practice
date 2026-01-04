@@ -19,6 +19,7 @@ public class homePage {
     WebDriverWait wait;
     By loginButton = By.xpath(propertieReader.appConfigReader("loginButton_xpath"));
     By contactUsButton = By.xpath(propertieReader.appConfigReader("contactUs_button_xpath"));
+    By testCasesButton = By.xpath(propertieReader.appConfigReader("testCasesButton"));
 
     public homePage(WebDriver driver) throws IOException {
         this.driver = driver;
@@ -38,6 +39,10 @@ public class homePage {
     public void clickContactUsButton(){
         WebElement contactUsBtn = wait.until(ExpectedConditions.elementToBeClickable(contactUsButton));
         contactUsBtn.click();
+    }
+
+    public void clickTestCaseButton(){
+        driver.findElement(testCasesButton).click();
     }
 
 
