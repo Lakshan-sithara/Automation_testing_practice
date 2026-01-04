@@ -33,7 +33,7 @@ public class LoginPage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    public void checkNewUserSignupVisibility(){
+    public void verifyNewUserSignupVisibility(){
         visibleText = compair.verifyNewUserSignupVisible(driver,"New User Signup!");
         Assert.assertTrue(visibleText);
     }
@@ -45,6 +45,11 @@ public class LoginPage {
 
     public void verifyEmailOrPasswordIncorrectMessage(){
         boolean result = compair.verifyEmailOrPasswordIncorrectErrorText(driver);
+        Assert.assertTrue(result);
+    }
+
+    public void verifyEmailAlreadyExistMessage(){
+        boolean result = compair.verifyEmailAlreadyExistMessage(driver);
         Assert.assertTrue(result);
     }
 

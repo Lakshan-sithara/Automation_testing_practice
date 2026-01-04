@@ -73,4 +73,9 @@ public class compair {
         return result;
     }
 
+    public static boolean verifyEmailAlreadyExistMessage(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//p[text()='Email Address already exist!']")).isDisplayed();
+        return result;
+    }
+
 }
