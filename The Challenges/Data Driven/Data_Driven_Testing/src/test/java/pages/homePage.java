@@ -19,7 +19,9 @@ public class homePage {
     WebDriverWait wait;
     By loginButton = By.xpath(propertieReader.appConfigReader("loginButton_xpath"));
     By contactUsButton = By.xpath(propertieReader.appConfigReader("contactUs_button_xpath"));
-    By testCasesButton = By.xpath(propertieReader.appConfigReader("testCasesButton"));
+    By testCasesButton = By.xpath(propertieReader.appConfigReader("testCasesButton_xpath"));
+    By productButton = By.xpath(propertieReader.appConfigReader("productButton_xpath"));
+
 
     public homePage(WebDriver driver) throws IOException {
         this.driver = driver;
@@ -43,6 +45,11 @@ public class homePage {
 
     public void clickTestCaseButton(){
         driver.findElement(testCasesButton).click();
+    }
+
+    public void clickProductButton(){
+        WebElement productBtn = wait.until(ExpectedConditions.elementToBeClickable(productButton));
+        productBtn.click();
     }
 
 

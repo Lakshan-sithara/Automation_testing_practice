@@ -2,8 +2,12 @@ package verify;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 public class compair {
+
+    SoftAssert softAssert = new SoftAssert();
 
     public static boolean verifyHomePageVisibility(WebDriver driver,String url){
 
@@ -89,6 +93,20 @@ public class compair {
             result = true;
         }
         return result;
+    }
+
+    public static boolean verifyAllProductPage(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//h2[contains(text(),'All Products')]")).isDisplayed();
+        return result;
+    }
+
+    public void validateProductDetails(WebElement element,String expectedValue,String fieldName){
+        String actualValue = element.getText().trim();
+        softAssert.assertEquals(actualValue,expectedValue,fieldName + "mismatch!");
+    }
+
+    public void assertAllDetails(){
+        softAssert.assertAll();
     }
 
 }
