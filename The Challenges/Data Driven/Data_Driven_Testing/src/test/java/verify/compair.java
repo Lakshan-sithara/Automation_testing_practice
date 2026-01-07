@@ -3,7 +3,13 @@ package verify;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class compair {
 
@@ -78,8 +84,7 @@ public class compair {
     }
 
     public static boolean verifyEmailAlreadyExistMessage(WebDriver driver){
-        boolean result = driver.findElement(By.xpath("//p[text()='Email Address already exist!']")).isDisplayed();
-        return result;
+        return driver.findElement(By.xpath("//p[text()='Email Address already exist!']")).isDisplayed();
     }
 
     public static boolean verifySucsessMessageInContactUs(WebDriver driver){
@@ -96,8 +101,9 @@ public class compair {
     }
 
     public static boolean verifyAllProductPage(WebDriver driver){
-        boolean result = driver.findElement(By.xpath("//h2[contains(text(),'All Products')]")).isDisplayed();
-        return result;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement allProductText = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h2[contains(text(),'All Products')]"))));
+        return allProductText.isDisplayed();
     }
 
     public void validateProductDetails(WebElement element,String expectedValue,String fieldName){
@@ -107,6 +113,20 @@ public class compair {
 
     public void assertAllDetails(){
         softAssert.assertAll();
+    }
+
+    public void verifySearchItems(WebDriver driver,String productName){
+
+        String lowerCaseName = productName.toLowerCase();
+
+        List<WebElement> searchItems = driver.findElements(By.xpath("//p[contains(translate(.," +
+                " 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '"+lowerCaseName+"')]"));
+
+        if (searchItems.isEmpty()){
+            System.out.println("No product found matching: " + productName);
+        } else {
+            System.out.println("Found " + searchItems.size() + " items.");
+        }
     }
 
 }

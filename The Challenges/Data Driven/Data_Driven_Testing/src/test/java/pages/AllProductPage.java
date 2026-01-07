@@ -18,6 +18,8 @@ public class AllProductPage {
     WebDriver driver;
     WebDriverWait wait;
 
+    String productName;
+
     By firstProduct_Button_xpath = By.xpath(propertieReader.appConfigReader("firstProduct_Button_xpath"));
     By productNameElement = By.xpath(propertieReader.appConfigReader("productName_xpath"));
     By categaryElement = By.xpath(propertieReader.appConfigReader("chategary_xpath"));
@@ -25,6 +27,8 @@ public class AllProductPage {
     By availabilityElement = By.xpath(propertieReader.appConfigReader("availibility_xpath"));
     By conditionElement = By.xpath(propertieReader.appConfigReader("consition_xpath"));
     By brandElement = By.xpath(propertieReader.appConfigReader("brand_xpath"));
+    By searchBarElement = By.xpath(propertieReader.appConfigReader("searchBar_xpath"));
+    By searchButtonElement = By.id(propertieReader.appConfigReader("searchButton_id"));
 
 
     public AllProductPage(WebDriver driver) throws IOException {
@@ -50,6 +54,22 @@ public class AllProductPage {
         compair.validateProductDetails(driver.findElement(availabilityElement), expectedDetails.get("availability"),"Availability" );
         compair.validateProductDetails(driver.findElement(conditionElement), expectedDetails.get("condition"),"Condition" );
         compair.validateProductDetails(driver.findElement(brandElement), expectedDetails.get("brand"),"Brand" );
+    }
+
+    public void enterDataOnSearchBar(String productName){
+        this.productName = productName;
+        WebElement searchBar =wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(searchBarElement) ));
+        searchBar.clear();
+        searchBar.sendKeys(productName);
+    }
+
+    public void clickSearchButton(){
+        driver.findElement(searchButtonElement).click();
+    }
+
+    public void verifySearchedItemsAreVisible(){
+        compair compair = new compair();
+        compair.verifySearchItems(driver,productName);
     }
 
 }
