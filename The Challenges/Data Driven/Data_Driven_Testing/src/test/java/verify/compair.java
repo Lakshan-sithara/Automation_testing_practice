@@ -129,4 +129,13 @@ public class compair {
         }
     }
 
+    public static boolean verifySubscriptionText(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//h2[contains(.,'Subscription')]")).isDisplayed();
+        return result;
+    }
+
+    public static boolean verifySubscribeSuccessfullMessage(WebDriver driver){
+        return driver.findElement(By.xpath("//div[text()='You have been successfully subscribed!']")).isDisplayed();
+    }
+
 }

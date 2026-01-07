@@ -2,6 +2,7 @@ package pages;
 
 import library.propertieReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,8 @@ public class AllProductPage {
     WebDriver driver;
     WebDriverWait wait;
 
+    compair compair;
+
     String productName;
 
     By firstProduct_Button_xpath = By.xpath(propertieReader.appConfigReader("firstProduct_Button_xpath"));
@@ -29,6 +32,8 @@ public class AllProductPage {
     By brandElement = By.xpath(propertieReader.appConfigReader("brand_xpath"));
     By searchBarElement = By.xpath(propertieReader.appConfigReader("searchBar_xpath"));
     By searchButtonElement = By.id(propertieReader.appConfigReader("searchButton_id"));
+    By emailTextBoxElement = By.id(propertieReader.appConfigReader("emailTextBox_id"));
+    By subscribeArrowButtonElement = By.id(propertieReader.appConfigReader("subscribeArrowButton_id"));
 
 
     public AllProductPage(WebDriver driver) throws IOException {
@@ -68,8 +73,29 @@ public class AllProductPage {
     }
 
     public void verifySearchedItemsAreVisible(){
-        compair compair = new compair();
         compair.verifySearchItems(driver,productName);
+    }
+
+    public void scrollToBottom(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    public void validateSubscriptionText(){
+        boolean result = compair.verifySubscriptionText(driver);
+        Assert.assertTrue(result);
+    }
+
+    public void enterEmailOnSubscription(){
+        driver.findElement(emailTextBoxElement).sendKeys("aa@aa.mm");
+    }
+
+    public void clickOnSubscribeArrowButton(){
+        driver.findElement(subscribeArrowButtonElement).click();
+    }
+
+    public void verifySubscribeSuccessText(){
+        Assert.assertTrue(compair.verifySubscribeSuccessfullMessage(driver));
     }
 
 }
