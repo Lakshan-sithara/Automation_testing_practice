@@ -21,6 +21,7 @@ public class homePage {
     By contactUsButton = By.xpath(propertieReader.appConfigReader("contactUs_button_xpath"));
     By testCasesButton = By.xpath(propertieReader.appConfigReader("testCasesButton_xpath"));
     By productButton = By.xpath(propertieReader.appConfigReader("productButton_xpath"));
+    By cartButton = By.xpath(propertieReader.appConfigReader("cartButton_xpath"));
 
 
     public homePage(WebDriver driver) throws IOException {
@@ -50,6 +51,11 @@ public class homePage {
     public void clickProductButton(){
         WebElement productBtn = wait.until(ExpectedConditions.elementToBeClickable(productButton));
         productBtn.click();
+    }
+
+    public void clickCartButton(){
+        WebElement cartBtn = wait.until(ExpectedConditions.elementToBeClickable(cartButton));
+        cartBtn.click();
     }
 
 
