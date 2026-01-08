@@ -164,4 +164,9 @@ public class compair {
         softAssert.assertAll();
     }
 
+    public static boolean verifyProductDetailsPage(WebDriver driver,String itemName){
+        boolean result = driver.findElement(By.xpath("//h2[text()='"+itemName+"']")).isDisplayed();
+        return result;
+    }
+
 }

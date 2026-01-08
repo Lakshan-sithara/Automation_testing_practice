@@ -58,5 +58,12 @@ public class homePage {
         cartBtn.click();
     }
 
+    public void clickViewProductOnItem(String itemName){
+        WebElement viewProductItemButton = wait.until(ExpectedConditions.
+                elementToBeClickable(driver.findElement(By.xpath("//p[text()='"+itemName+"']" +
+                        "/parent::div/parent::div/parent::div/following-sibling::div/ul/li/a[text()='View Product']"))));
+        viewProductItemButton.click();
+    }
+
 
 }
