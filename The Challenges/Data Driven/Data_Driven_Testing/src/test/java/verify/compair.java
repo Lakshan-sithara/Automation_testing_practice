@@ -9,6 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class compair {
@@ -136,6 +137,31 @@ public class compair {
 
     public static boolean verifySubscribeSuccessfullMessage(WebDriver driver){
         return driver.findElement(By.xpath("//div[text()='You have been successfully subscribed!']")).isDisplayed();
+    }
+
+    public static boolean verifyAddedCartItems(WebDriver driver,String itemName){
+        boolean result = false;
+
+
+            if (driver.findElement(By.xpath("//a[text()='"+itemName+"']")).isDisplayed()){
+                System.out.println(itemName+" is in the cart! ");
+                result = true;
+            }
+            else {
+                System.out.println(itemName+" is not in the cart! ");
+            }
+
+
+
+        return result;
+    }
+
+    public void validateCartItemDetails(WebElement element,String expectedValue,String fieldName){
+        String actualValue = element.getText().trim();
+        softAssert.assertEquals(actualValue,expectedValue,fieldName + "mismatch!");
+    }
+    public void assertcartDetails(){
+        softAssert.assertAll();
     }
 
 }

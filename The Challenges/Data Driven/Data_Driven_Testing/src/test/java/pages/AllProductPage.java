@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -34,6 +35,8 @@ public class AllProductPage {
     By searchButtonElement = By.id(propertieReader.appConfigReader("searchButton_id"));
     By emailTextBoxElement = By.id(propertieReader.appConfigReader("emailTextBox_id"));
     By subscribeArrowButtonElement = By.id(propertieReader.appConfigReader("subscribeArrowButton_id"));
+    By continueShipingButtonElement = By.xpath(propertieReader.appConfigReader("continueShipingButton_xpath"));
+    By viewCartButtonElement = By.xpath(propertieReader.appConfigReader("viewCartButton_xpath"));
 
 
     public AllProductPage(WebDriver driver) throws IOException {
@@ -59,6 +62,7 @@ public class AllProductPage {
         compair.validateProductDetails(driver.findElement(availabilityElement), expectedDetails.get("availability"),"Availability" );
         compair.validateProductDetails(driver.findElement(conditionElement), expectedDetails.get("condition"),"Condition" );
         compair.validateProductDetails(driver.findElement(brandElement), expectedDetails.get("brand"),"Brand" );
+
     }
 
     public void enterDataOnSearchBar(String productName){
@@ -97,5 +101,31 @@ public class AllProductPage {
     public void verifySubscribeSuccessText(){
         Assert.assertTrue(compair.verifySubscribeSuccessfullMessage(driver));
     }
+
+    public void hoverOverItemAndAddToCart(String itemName){
+
+        By locator = By.xpath("//p[text()='"+itemName+"']/following-sibling::a[text()='Add to cart']");
+
+        WebElement item = wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+        Actions act = new Actions(driver);
+        act.moveToElement(item).perform();
+
+        item.click();
+
+
+    }
+
+    public void clickContinueShippingButton(){
+        WebElement continueShipingButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(continueShipingButtonElement)));
+        continueShipingButton.click();
+    }
+
+    public void clickViewCartButton(){
+        WebElement viewCartButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(viewCartButtonElement)));
+        viewCartButton.click();
+    }
+
+
 
 }
