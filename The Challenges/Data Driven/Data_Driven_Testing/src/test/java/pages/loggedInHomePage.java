@@ -30,7 +30,7 @@ public class loggedInHomePage {
     }
 
     public void verifyUsernameIsVisible(){
-        verifyUsernameResult=compair.isUserLoggedInAs(driver,"abc");
+        verifyUsernameResult=compair.isUserLoggedInAs(driver,"ccc");
         Assert.assertTrue(verifyUsernameResult);
     }
 

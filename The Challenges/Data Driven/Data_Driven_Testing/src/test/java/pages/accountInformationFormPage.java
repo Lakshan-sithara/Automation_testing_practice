@@ -3,12 +3,10 @@ package pages;
 import library.propertieReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import verify.compair;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class accountInformationFormPage {
@@ -84,7 +82,7 @@ public class accountInformationFormPage {
 
     }
 
-    public void continueButton(){
+    public void verifyAccountCreatedAndClickContinueButton(){
         accountCreatedVisibleResult=compair.verifyAccountCreatedText(driver);
         Assert.assertTrue(accountCreatedVisibleResult);
 

@@ -2,9 +2,6 @@ package testcases;
 
 
 import base.initiateDriver;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.accountInformationFormPage;
@@ -27,15 +24,15 @@ public class TC_01 extends initiateDriver {
 
         LoginPage loginPage = new LoginPage(driver);
 
-        loginPage.enterUsername();
-        loginPage.enterPassword();
+        loginPage.enterUsernameOnSignUp();
+        loginPage.enterEmailOnSignUp();
         loginPage.clickSignUpButton();
         //Assert.assertTrue(homePage.isHomePageDisplayed());
 
         accountInformationFormPage AIFPage = new accountInformationFormPage(driver);
         AIFPage.verifyTitleVisibility();
         AIFPage.fillRegistrationForm();
-        AIFPage.continueButton();
+        AIFPage.verifyAccountCreatedAndClickContinueButton();
 
         loggedInHomePage loggedInHomePage = new loggedInHomePage(driver);
         loggedInHomePage.verifyUsernameIsVisible();

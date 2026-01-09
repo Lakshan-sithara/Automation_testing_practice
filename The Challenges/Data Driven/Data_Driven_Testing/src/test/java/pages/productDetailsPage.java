@@ -48,7 +48,7 @@ public class productDetailsPage {
 
     public void validateProductQuantity(String quantity){
         compair compair = new compair();
-        compair.validateCartItemDetails(driver.findElement(By.xpath("//button[text()='"+quantity+"']")),quantity,"quantity" );
+        compair.compairDetails(driver.findElement(By.xpath("//button[text()='"+quantity+"']")),quantity,"quantity" );
 
         compair.assertAllDetails();
     }

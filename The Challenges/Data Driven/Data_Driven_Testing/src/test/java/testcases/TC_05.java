@@ -17,8 +17,8 @@ public class TC_05 extends initiateDriver {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyNewUserSignupVisibility();
-        loginPage.enterUsername();
-        loginPage.enterPassword();
+        loginPage.enterUsernameOnSignUp();
+        loginPage.enterEmailOnSignUp();
         loginPage.clickSignUpButton();
         loginPage.verifyEmailAlreadyExistMessage();
     }

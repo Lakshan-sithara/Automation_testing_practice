@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class compair {
@@ -156,7 +154,7 @@ public class compair {
         return result;
     }
 
-    public void validateCartItemDetails(WebElement element,String expectedValue,String fieldName){
+    public void compairDetails(WebElement element, String expectedValue, String fieldName){
         String actualValue = element.getText().trim();
         softAssert.assertEquals(actualValue,expectedValue,fieldName + "mismatch!");
     }
@@ -168,5 +166,19 @@ public class compair {
         boolean result = driver.findElement(By.xpath("//h2[text()='"+itemName+"']")).isDisplayed();
         return result;
     }
+
+    public static boolean verifyCartPage(WebDriver driver){
+        boolean result = false;
+        if (driver.getCurrentUrl().equalsIgnoreCase("https://automationexercise.com/view_cart")){
+            result = true;
+        }
+        return result;
+    }
+
+    public static boolean verifyOrderPlaceSuccessMessage(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//b[text()='Order Placed!']")).isDisplayed();
+        return result;
+    }
+
 
 }

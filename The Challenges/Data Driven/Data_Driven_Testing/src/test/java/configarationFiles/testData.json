@@ -1,0 +1,20 @@
+{
+  "addressDetails": {
+    "fname": "aaaaaa",
+    "lname": "bbbbb",
+    "address1": "ABC",
+    "address2": "nochchikulama",
+    "city": "DDDDD",
+    "state_name": "cccc",
+    "post_code": "123333",
+    "country_name": "Canada",
+    "phone_numer": "123654789"
+  },
+  "paymentDetails": {
+    "nameOnCard": "VISA",
+    "cardNumber": "12345678",
+    "CVC": "234",
+    "Emonth": "3",
+    "Eyear": "2028"
+  }
+}

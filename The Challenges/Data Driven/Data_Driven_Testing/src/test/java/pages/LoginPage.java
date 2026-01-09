@@ -3,8 +3,6 @@ package pages;
 import library.propertieReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import verify.compair;
@@ -53,12 +51,12 @@ public class LoginPage {
         Assert.assertTrue(result);
     }
 
-    public void enterUsername() throws IOException {
+    public void enterUsernameOnSignUp() throws IOException {
         driver.findElement(username_textbox_xpath).sendKeys(propertieReader.appConfigReader("signInUsername"));
     }
 
-    public void enterPassword() throws IOException {
-        driver.findElement(password_textbox_xpath).sendKeys(propertieReader.appConfigReader("signInPassword"));
+    public void enterEmailOnSignUp() throws IOException {
+        driver.findElement(password_textbox_xpath).sendKeys(propertieReader.appConfigReader("signInEmail"));
     }
 
     public void clickSignUpButton(){
