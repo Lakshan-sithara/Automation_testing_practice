@@ -180,5 +180,10 @@ public class compair {
         return result;
     }
 
+    public static boolean verifyRemovedProduct(WebDriver driver,String productName){
+        boolean result = driver.findElement(By.xpath("//a[text()='Blue Top']")).isDisplayed();
+        return result;
+    }
+
 
 }

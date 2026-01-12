@@ -49,5 +49,10 @@ public class cartPage {
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//u[text()='Register / Login']")))).click();
     }
 
+    public void removeProductAndVerify(String productName){
+        driver.findElement(By.xpath("//a[text()='"+productName+"']/parent::h4/parent::td/following-sibling::td/a[@class='cart_quantity_delete']")).click();
+        compair.verifyRemovedProduct(driver,productName);
+    }
+
 
 }

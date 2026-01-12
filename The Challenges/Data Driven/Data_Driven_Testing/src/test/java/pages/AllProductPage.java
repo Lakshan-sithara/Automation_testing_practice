@@ -113,7 +113,6 @@ public class AllProductPage {
 
         item.click();
 
-
     }
 
     public void clickContinueShippingButton(){

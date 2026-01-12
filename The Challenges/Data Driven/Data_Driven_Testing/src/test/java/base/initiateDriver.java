@@ -21,11 +21,12 @@ public class initiateDriver {
         WebDriverManager.chromedriver().setup();
 
 
-        ChromeOptions options = new ChromeOptions();
+        /*ChromeOptions options = new ChromeOptions();
 
         // Typical Windows path:
         options.setBinary("C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver();
         driver.get(propertieReader.appConfigReader("App_url"));
         driver.manage().window().maximize();
     }
