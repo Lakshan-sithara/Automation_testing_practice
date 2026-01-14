@@ -1,6 +1,7 @@
 package pages;
 
 import library.propertieReader;
+import library.stringCapitalize;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -63,6 +64,32 @@ public class homePage {
                 elementToBeClickable(driver.findElement(By.xpath("//p[text()='"+itemName+"']" +
                         "/parent::div/parent::div/parent::div/following-sibling::div/ul/li/a[text()='View Product']"))));
         viewProductItemButton.click();
+    }
+
+    public void verifyCategoryVisibility(){
+        boolean result =compair.verifyCategoryVisibility(driver);
+        Assert.assertTrue(result);
+    }
+
+    public void clickMainCategory(String categoryName) {
+
+        String fixedMainCategory = stringCapitalize.capitalize(categoryName);
+        String xpath = "//a[@href='#"+fixedMainCategory+"']";
+
+        driver.findElement(By.xpath(xpath)).click();
+    }
+
+    public void clickSubCategoryAndConfirmText(String subCategoryName,String mainCategoryName){
+
+        String lowerSubCategory = subCategoryName.toLowerCase();
+
+        String catXpath = "//a[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'"+lowerSubCategory+"')]";
+
+        driver.findElement(By.xpath(catXpath)).click();
+
+        boolean result = compair.verifyCategoryText(driver,wait,mainCategoryName,lowerSubCategory);
+        Assert.assertTrue(result);
+
     }
 
 

@@ -1,5 +1,6 @@
 package verify;
 
+import library.stringCapitalize;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -182,6 +183,23 @@ public class compair {
 
     public static boolean verifyRemovedProduct(WebDriver driver,String productName){
         boolean result = driver.findElement(By.xpath("//a[text()='Blue Top']")).isDisplayed();
+        return result;
+    }
+
+    public static boolean verifyCategoryVisibility(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//h2[text()='Category']")).isDisplayed();
+        return result;
+    }
+
+    public static boolean verifyCategoryText(WebDriver driver, WebDriverWait wait,String mainCategoryName,String subCategoryName){
+
+        String fixedMainCategory = stringCapitalize.capitalize(mainCategoryName);
+        String fixedSubCategory = stringCapitalize.capitalize(subCategoryName);
+
+        String catTextXpath = "//h2[text()='"+fixedMainCategory+" - "+fixedSubCategory+" Products']";
+
+        boolean result = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(catTextXpath)))).isDisplayed();
+
         return result;
     }
 
