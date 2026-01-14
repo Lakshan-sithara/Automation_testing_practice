@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
@@ -202,6 +203,22 @@ public class compair {
 
         return result;
     }
+
+    public static boolean verifyBrandTitleText(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//h2[text()='Brands']")).isDisplayed();
+        return result;
+    }
+
+    public static void verifyBrandBannerText(WebDriver driver,String brandname){
+        boolean result1 = driver.findElement(By.xpath("//h2[text()='Brand - "+brandname+" Products']")).isDisplayed();
+
+        boolean result2 = !driver.findElements(By.xpath("//div[@class='product-image-wrapper']")).isEmpty();
+
+        Assert.assertEquals(result1,result2);
+
+    }
+
+
 
 
 }

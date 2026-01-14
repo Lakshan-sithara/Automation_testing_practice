@@ -1,6 +1,7 @@
 package pages;
 
 import library.propertieReader;
+import library.stringCapitalize;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,7 @@ public class AllProductPage {
     compair compair;
 
     String productName;
+    String fixedBrandName;
 
     By firstProduct_Button_xpath = By.xpath(propertieReader.appConfigReader("firstProduct_Button_xpath"));
     By productNameElement = By.xpath(propertieReader.appConfigReader("productName_xpath"));
@@ -123,6 +125,22 @@ public class AllProductPage {
     public void clickViewCartButton(){
         WebElement viewCartButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(viewCartButtonElement)));
         viewCartButton.click();
+    }
+
+    public void verifyBrandText(){
+        boolean result = verify.compair.verifyBrandTitleText(driver);
+        Assert.assertTrue(result);
+    }
+
+    public void clickBrand(String brandName){
+        fixedBrandName = stringCapitalize.capitalize(brandName);
+
+        driver.findElement(By.xpath("//a[text()='"+fixedBrandName+"']")).click();
+    }
+
+    public void verifyBrandTitleTextAndBrandProductsAreDisplayed(){
+        compair.verifyBrandBannerText(driver,fixedBrandName);
+
     }
 
 
