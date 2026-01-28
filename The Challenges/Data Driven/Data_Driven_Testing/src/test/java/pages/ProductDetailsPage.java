@@ -6,12 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import verify.compair;
 
 import java.io.IOException;
 import java.time.Duration;
 
-public class productDetailsPage {
+public class ProductDetailsPage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -21,7 +22,7 @@ public class productDetailsPage {
     By viewCartButtonElement = By.xpath(propertieReader.appConfigReader("viewCartButton_xpath"));
 
 
-    public productDetailsPage(WebDriver driver) throws IOException {
+    public ProductDetailsPage(WebDriver driver) throws IOException {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
@@ -51,6 +52,31 @@ public class productDetailsPage {
         compair.compairDetails(driver.findElement(By.xpath("//button[text()='"+quantity+"']")),quantity,"quantity" );
 
         compair.assertAllDetails();
+    }
+
+    public void verifyWriteYourReviewText(){
+        Assert.assertTrue(compair.writeYourReview(driver));
+
+    }
+
+    public void enterNameOnReview(String name){
+        driver.findElement(By.id("name")).sendKeys(name);
+    }
+
+    public void enterEmailOnReview(String email){
+        driver.findElement(By.id("email")).sendKeys(email);
+    }
+
+    public void enterDetailsOnReviewSection(String review){
+        driver.findElement(By.id("review")).sendKeys(review);
+    }
+
+    public void clickReviewSubmitButton(){
+        driver.findElement(By.id("button-review")).click();
+    }
+
+    public void verifyReviewSuccessMessage(){
+        Assert.assertTrue(compair.verifyReviewSuccessMessage(driver));
     }
 
 }

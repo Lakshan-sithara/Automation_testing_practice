@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import pages.AllProductPage;
 import pages.cartPage;
 import pages.homePage;
-import verify.compair;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -36,7 +35,7 @@ public class TC_12 extends initiateDriver {
 
         AllProductPage allProductPage = new AllProductPage(driver);
         allProductPage.hoverOverItemAndAddToCart(itemsDetails.get("Item1Name"));
-        allProductPage.clickContinueShippingButton();
+        allProductPage.clickContinueShoppingButton();
         allProductPage.hoverOverItemAndAddToCart(itemsDetails.get("Item2Name"));
         allProductPage.clickViewCartButton();
 

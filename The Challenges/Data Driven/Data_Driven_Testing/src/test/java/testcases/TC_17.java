@@ -18,7 +18,7 @@ public class TC_17 extends initiateDriver {
 
         AllProductPage allProductPage = new AllProductPage(driver);
         allProductPage.hoverOverItemAndAddToCart("Blue Top");
-        allProductPage.clickContinueShippingButton();
+        allProductPage.clickContinueShoppingButton();
         allProductPage.hoverOverItemAndAddToCart("Men Tshirt");
         allProductPage.clickViewCartButton();
 

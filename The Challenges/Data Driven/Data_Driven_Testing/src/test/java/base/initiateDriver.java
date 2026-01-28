@@ -21,14 +21,14 @@ public class initiateDriver {
     public void startBrowser() throws IOException {
         WebDriverManager.chromedriver().setup();
 
-        ChromeOptions options = new ChromeOptions();
-        options.addExtensions(new File("extentions/CJPALHDLNBPAFIAMEJDNHCPHJBKEIAGM_1_68_0_0.crx"));
+        //ChromeOptions options = new ChromeOptions();
+        //options.addExtensions(new File("extentions/CJPALHDLNBPAFIAMEJDNHCPHJBKEIAGM_1_68_0_0.crx"));
 
-        /*ChromeOptions options = new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
 
         // Typical Windows path:
         options.setBinary("C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe");
-        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver(options);
         driver = new ChromeDriver(options);
         driver.get(propertieReader.appConfigReader("App_url"));
         driver.manage().window().maximize();

@@ -3,7 +3,7 @@ package testcases;
 import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.homePage;
-import pages.productDetailsPage;
+import pages.ProductDetailsPage;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ public class TC_13 extends initiateDriver {
         homePage.verifyHomePage();
         homePage.clickViewProductOnItem(productName);
 
-        productDetailsPage productDetailsPage = new productDetailsPage(driver);
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
         productDetailsPage.verifyProductDetailsPage(productName);
         productDetailsPage.setQuantity(productQuantity);
         productDetailsPage.clickAddToCartButton();

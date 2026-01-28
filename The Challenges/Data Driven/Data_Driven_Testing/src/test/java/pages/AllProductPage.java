@@ -14,6 +14,7 @@ import verify.compair;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Map;
 
 public class AllProductPage {
@@ -82,6 +83,25 @@ public class AllProductPage {
         compair.verifySearchItems(driver,productName);
     }
 
+    public void addAllSearchedProductsToCart(){
+        String lowerCaseName = productName.toLowerCase();
+
+        List<WebElement> searchItems = driver.findElements(By.xpath("//p[contains(translate(.," +
+                " 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '"+lowerCaseName+"')]"));
+
+        for (WebElement element : searchItems){
+            WebElement item = wait.until(ExpectedConditions.elementToBeClickable(element));
+
+            Actions act = new Actions(driver);
+            act.moveToElement(item).perform();
+
+            item.click();
+        }
+
+
+
+    }
+
     public void scrollToBottom(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
@@ -117,7 +137,7 @@ public class AllProductPage {
 
     }
 
-    public void clickContinueShippingButton(){
+    public void clickContinueShoppingButton(){
         WebElement continueShipingButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(continueShipingButtonElement)));
         continueShipingButton.click();
     }
@@ -141,6 +161,10 @@ public class AllProductPage {
     public void verifyBrandTitleTextAndBrandProductsAreDisplayed(){
         compair.verifyBrandBannerText(driver,fixedBrandName);
 
+    }
+
+    public void clickViewProductButton(String productName){
+        driver.findElement(By.xpath("//p[text()='"+productName+"']/parent::div/parent::div/following-sibling::div/ul/li/a[text()='View Product']")).click();
     }
 
 

@@ -218,6 +218,16 @@ public class compair {
 
     }
 
+    public static boolean writeYourReview(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//a[text()='Write Your Review']")).isDisplayed();
+        return result;
+    }
+
+    public static boolean verifyReviewSuccessMessage(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//span[text()='Thank you for your review.']")).isDisplayed();
+        return result;
+    }
+
 
 
 
