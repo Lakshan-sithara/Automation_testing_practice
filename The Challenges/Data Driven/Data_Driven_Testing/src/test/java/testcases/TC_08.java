@@ -3,7 +3,7 @@ package testcases;
 import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
-import pages.homePage;
+import pages.HomePage;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public class TC_08 extends initiateDriver {
         expectedData.put("condition", "New");
         expectedData.put("brand", "Polo");
 
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
         homePage.clickProductButton();
 

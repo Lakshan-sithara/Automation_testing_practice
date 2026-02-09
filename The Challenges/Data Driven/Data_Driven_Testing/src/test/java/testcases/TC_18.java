@@ -2,7 +2,7 @@ package testcases;
 
 import base.initiateDriver;
 import org.testng.annotations.Test;
-import pages.homePage;
+import pages.HomePage;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ public class TC_18 extends initiateDriver {
 
     @Test
     public void viewCategoryProducts() throws IOException {
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
         homePage.verifyCategoryVisibility();
         homePage.clickMainCategory("women");

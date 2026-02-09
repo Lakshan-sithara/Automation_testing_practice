@@ -3,8 +3,8 @@ package testcases;
 import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
-import pages.cartPage;
-import pages.homePage;
+import pages.CartPage;
+import pages.HomePage;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,7 +29,7 @@ public class TC_12 extends initiateDriver {
         itemsDetails.put("Item2quantity",String.valueOf(item2_quantity));
         itemsDetails.put("Item2total_price","Rs. "+item2_price*item2_quantity);
 
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
         homePage.clickProductButton();
 
@@ -39,7 +39,7 @@ public class TC_12 extends initiateDriver {
         allProductPage.hoverOverItemAndAddToCart(itemsDetails.get("Item2Name"));
         allProductPage.clickViewCartButton();
 
-        cartPage cartPage = new cartPage(driver);
+        CartPage cartPage = new CartPage(driver);
         cartPage.verifyItemAddedToCart(itemsDetails);
         //validate first item details
         cartPage.validateProductDetails(itemsDetails.get("Item1price"),itemsDetails.get("Item1quantity"),

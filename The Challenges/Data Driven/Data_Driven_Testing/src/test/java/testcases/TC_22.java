@@ -7,26 +7,27 @@ import pages.CartPage;
 import pages.HomePage;
 
 import java.io.IOException;
+import java.util.HashMap;
 
-public class TC_17 extends initiateDriver {
+public class TC_22 extends initiateDriver {
+
+
 
     @Test
-    public void removeProductFromCart() throws IOException {
+    public void addToCartFromRecommendedItem() throws IOException {
+
+        HashMap<String,String> itemsDetails = new HashMap<>();
+        itemsDetails.put("Item1Name","Blue Top");
 
         HomePage homePage = new HomePage(driver);
-        homePage.verifyHomePage();
+        homePage.verifyRecommendedItemText();
+        homePage.addRecommendedItemToCart();
 
         AllProductPage allProductPage = new AllProductPage(driver);
-        allProductPage.hoverOverItemAndAddToCart("Blue Top");
-        allProductPage.clickContinueShoppingButton();
-        allProductPage.hoverOverItemAndAddToCart("Men Tshirt");
         allProductPage.clickViewCartButton();
 
         CartPage cartPage = new CartPage(driver);
-        cartPage.verifyCartPage();
-        cartPage.removeProductAndVerify("Blue Top");
-
-
+        cartPage.verifyItemAddedToCart(itemsDetails);
     }
 
 }

@@ -228,6 +228,10 @@ public class compair {
         return result;
     }
 
+    public static boolean vertifyRecommendedItemText(WebDriver driver){
+        boolean result = driver.findElement(By.xpath("//h2[text()='recommended items']")).isDisplayed();
+        return result;
+    }
 
 
 

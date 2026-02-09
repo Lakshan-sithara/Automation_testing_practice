@@ -4,7 +4,7 @@ import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
 import pages.ProductDetailsPage;
-import pages.homePage;
+import pages.HomePage;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ public class TC_21 extends initiateDriver {
 
     @Test
     public void addReviewOnProduct() throws IOException {
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.clickProductButton();
 
         AllProductPage allProductPage = new AllProductPage(driver);

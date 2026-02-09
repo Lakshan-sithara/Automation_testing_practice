@@ -1,10 +1,9 @@
 package testcases;
 
 import base.initiateDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.homePage;
+import pages.HomePage;
 import pages.loggedInHomePage;
 
 import java.io.IOException;
@@ -15,7 +14,7 @@ public class TC_02 extends initiateDriver {
     @Test
     public void loginUserWithCorrectcredintials() throws IOException {
 
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
         homePage.clickLoginSigninButton();
 

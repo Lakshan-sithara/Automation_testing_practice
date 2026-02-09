@@ -2,7 +2,7 @@ package testcases;
 
 import base.initiateDriver;
 import org.testng.annotations.Test;
-import pages.homePage;
+import pages.HomePage;
 import pages.ProductDetailsPage;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class TC_13 extends initiateDriver {
         String productName = "Blue Top";
         int productQuantity = 4;
 
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
         homePage.clickViewProductOnItem(productName);
 

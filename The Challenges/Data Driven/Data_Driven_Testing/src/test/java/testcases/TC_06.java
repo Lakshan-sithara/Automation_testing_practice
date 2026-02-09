@@ -3,7 +3,7 @@ package testcases;
 import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.contactUsPage;
-import pages.homePage;
+import pages.HomePage;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ public class TC_06 extends initiateDriver {
 
     @Test
     public void contactUsForm() throws IOException {
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.clickContactUsButton();
 
         contactUsPage contactUsPage = new contactUsPage(driver);

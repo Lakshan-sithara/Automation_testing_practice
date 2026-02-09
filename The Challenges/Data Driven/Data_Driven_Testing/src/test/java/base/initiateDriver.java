@@ -29,7 +29,7 @@ public class initiateDriver {
         // Typical Windows path:
         options.setBinary("C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe");
         driver = new ChromeDriver(options);
-        driver = new ChromeDriver(options);
+        //driver = new ChromeDriver(options);
         driver.get(propertieReader.appConfigReader("App_url"));
         driver.manage().window().maximize();
     }

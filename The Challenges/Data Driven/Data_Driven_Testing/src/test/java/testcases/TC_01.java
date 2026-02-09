@@ -5,7 +5,7 @@ import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.accountInformationFormPage;
-import pages.homePage;
+import pages.HomePage;
 import pages.loggedInHomePage;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class TC_01 extends initiateDriver {
     @Test
     public void testUserCanLogin() throws IOException {
 
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
         homePage.clickLoginSigninButton();
 

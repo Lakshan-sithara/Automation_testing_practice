@@ -8,14 +8,15 @@ import verify.compair;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.Map;
 
-public class cartPage {
+public class CartPage {
 
     WebDriver driver;
     WebDriverWait wait;
 
 
-    public cartPage(WebDriver driver){
+    public CartPage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
@@ -25,8 +26,12 @@ public class cartPage {
     }
 
     public void verifyItemAddedToCart(HashMap <String,String> ItemName){
-        compair.verifyAddedCartItems(driver,ItemName.get("Item1Name"));
-        compair.verifyAddedCartItems(driver, ItemName.get("Item2Name"));
+        for (Map.Entry<String, String> entry : ItemName.entrySet()) {
+            String item = entry.getValue();
+            if (item != null) {
+                compair.verifyAddedCartItems(driver, item);
+            }
+        }
     }
 
     public void validateProductDetails(String price,String quantity,String itemName,String total_price){

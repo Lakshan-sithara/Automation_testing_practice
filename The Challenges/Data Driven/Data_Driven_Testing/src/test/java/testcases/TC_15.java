@@ -21,7 +21,7 @@ public class TC_15 extends initiateDriver {
         HashMap<String,String> addressDetails = (HashMap<String, String>) allData.get("addressDetails");
         HashMap<String,String> paymentDetails = (HashMap<String, String>) allData.get("paymentDetails");
 
-        homePage homePage = new homePage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
         homePage.clickLoginSigninButton();
 
@@ -42,7 +42,7 @@ public class TC_15 extends initiateDriver {
         allProductPage.hoverOverItemAndAddToCart("Blue Top");
         allProductPage.clickViewCartButton();
 
-        cartPage cartPage = new cartPage(driver);
+        CartPage cartPage = new CartPage(driver);
         cartPage.verifyCartPage();
         cartPage.clickCheckoutButton();
 
