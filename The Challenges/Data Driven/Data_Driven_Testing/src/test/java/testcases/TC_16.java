@@ -30,7 +30,7 @@ public class TC_16 extends initiateDriver {
         loginPage.enterPasswordOnlogin();
         loginPage.clickLoginButton();
 
-        loggedInHomePage loggedInHomePage= new loggedInHomePage(driver);
+        LoggedInHomePage loggedInHomePage= new LoggedInHomePage(driver);
         loggedInHomePage.verifyUsernameIsVisible();
 
         AllProductPage allProductPage = new AllProductPage(driver);
@@ -42,8 +42,8 @@ public class TC_16 extends initiateDriver {
         cartPage.verifyCartPage();
         cartPage.clickCheckoutButton();
 
-        checkOutPage checkOutPage = new checkOutPage(driver);
-        checkOutPage.verifyAddressDetailsAndReviewOrder(addressDetails);
+        CheckOutPage checkOutPage = new CheckOutPage(driver);
+        checkOutPage.verifyDelivaryAddressDetailsAndReviewOrder(addressDetails);
 
         checkOutPage.enterDiscriptionOnTextArea();
         checkOutPage.clickPlaceOrderButton();

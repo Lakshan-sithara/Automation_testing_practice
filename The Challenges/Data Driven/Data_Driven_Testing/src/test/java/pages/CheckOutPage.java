@@ -2,26 +2,22 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import verify.compair;
+import verify.Compair;
 
-import java.time.Duration;
 import java.util.HashMap;
 
-public class checkOutPage {
+public class CheckOutPage {
 
     WebDriver driver;
 
 
-    public checkOutPage(WebDriver driver){
+    public CheckOutPage(WebDriver driver){
         this.driver = driver;
 
     }
 
-    public void verifyAddressDetailsAndReviewOrder(HashMap<String,String> expectedResult){
-        compair compair = new compair();
+    public void verifyDelivaryAddressDetailsAndReviewOrder(HashMap<String,String> expectedResult){
+        Compair compair = new Compair();
         compair.compairDetails(driver.findElement(By.xpath("//li[@class='address_firstname address_lastname']"))
                 , expectedResult.get("fname")+" "+expectedResult.get("lname"),"address");
         compair.compairDetails(driver.findElement(By.xpath("//li[text()='ABC']"))
@@ -35,6 +31,7 @@ public class checkOutPage {
         compair.compairDetails(driver.findElement(By.xpath("//li[@class='address_phone']"))
                 ,expectedResult.get("phone_numer"),"phone number" );
     }
+
 
     public void enterDiscriptionOnTextArea(){
         driver.findElement(By.tagName("textarea")).sendKeys("test");

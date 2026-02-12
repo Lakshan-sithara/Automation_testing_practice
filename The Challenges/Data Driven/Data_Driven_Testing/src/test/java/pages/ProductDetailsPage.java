@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -28,7 +28,7 @@ public class ProductDetailsPage {
     }
 
     public void verifyProductDetailsPage(String productName){
-        compair.verifyProductDetailsPage(driver,productName);
+        Compair.verifyProductDetailsPage(driver,productName);
     }
 
     public void setQuantity(int quantity){
@@ -48,14 +48,14 @@ public class ProductDetailsPage {
     }
 
     public void validateProductQuantity(String quantity){
-        compair compair = new compair();
+        Compair compair = new Compair();
         compair.compairDetails(driver.findElement(By.xpath("//button[text()='"+quantity+"']")),quantity,"quantity" );
 
         compair.assertAllDetails();
     }
 
     public void verifyWriteYourReviewText(){
-        Assert.assertTrue(compair.writeYourReview(driver));
+        Assert.assertTrue(Compair.writeYourReview(driver));
 
     }
 
@@ -76,7 +76,7 @@ public class ProductDetailsPage {
     }
 
     public void verifyReviewSuccessMessage(){
-        Assert.assertTrue(compair.verifyReviewSuccessMessage(driver));
+        Assert.assertTrue(Compair.verifyReviewSuccessMessage(driver));
     }
 
 }

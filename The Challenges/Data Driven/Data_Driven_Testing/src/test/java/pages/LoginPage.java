@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -32,22 +32,22 @@ public class LoginPage {
     }
 
     public void verifyNewUserSignupVisibility(){
-        visibleText = compair.verifyNewUserSignupVisible(driver,"New User Signup!");
+        visibleText = Compair.verifyNewUserSignupVisible(driver,"New User Signup!");
         Assert.assertTrue(visibleText);
     }
 
     public void verifyLoginPage(){
-        boolean result = compair.verifyLoginToYourAccountText(driver);
+        boolean result = Compair.verifyLoginToYourAccountText(driver);
         Assert.assertTrue(result);
     }
 
     public void verifyEmailOrPasswordIncorrectMessage(){
-        boolean result = compair.verifyEmailOrPasswordIncorrectErrorText(driver);
+        boolean result = Compair.verifyEmailOrPasswordIncorrectErrorText(driver);
         Assert.assertTrue(result);
     }
 
     public void verifyEmailAlreadyExistMessage(){
-        boolean result = compair.verifyEmailAlreadyExistMessage(driver);
+        boolean result = Compair.verifyEmailAlreadyExistMessage(driver);
         Assert.assertTrue(result);
     }
 

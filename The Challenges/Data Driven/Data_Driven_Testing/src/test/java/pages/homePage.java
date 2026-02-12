@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -37,7 +37,7 @@ public class HomePage {
     }
 
     public void verifyHomePage() throws IOException {
-        homePageUrl = compair.verifyHomePageVisibility(driver,propertieReader.appConfigReader("App_url"));
+        homePageUrl = Compair.verifyHomePageVisibility(driver,propertieReader.appConfigReader("App_url"));
         Assert.assertTrue(homePageUrl);
     }
 
@@ -68,7 +68,7 @@ public class HomePage {
     }
 
     public void verifyCategoryVisibility(){
-        boolean result =compair.verifyCategoryVisibility(driver);
+        boolean result = Compair.verifyCategoryVisibility(driver);
         Assert.assertTrue(result);
     }
 
@@ -88,13 +88,13 @@ public class HomePage {
 
         driver.findElement(By.xpath(catXpath)).click();
 
-        boolean result = compair.verifyCategoryText(driver,wait,mainCategoryName,lowerSubCategory);
+        boolean result = Compair.verifyCategoryText(driver,wait,mainCategoryName,lowerSubCategory);
         Assert.assertTrue(result);
 
     }
 
     public void verifyRecommendedItemText(){
-        Assert.assertTrue(compair.vertifyRecommendedItemText(driver));
+        Assert.assertTrue(Compair.vertifyRecommendedItemText(driver));
     }
 
     public void scrollToRecommendedItemsCarousel() {

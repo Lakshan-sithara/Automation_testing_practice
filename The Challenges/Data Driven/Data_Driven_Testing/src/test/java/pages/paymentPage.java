@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class paymentPage {
     }
 
     public void verifySucessMessage(){
-        Assert.assertTrue(compair.verifyOrderPlaceSuccessMessage(driver));
+        Assert.assertTrue(Compair.verifyOrderPlaceSuccessMessage(driver));
     }
 
     public void clickDeleteAccountButton(){
@@ -42,7 +42,7 @@ public class paymentPage {
     }
 
     public void verifyDeleteAccountMessage(){
-        compair.verifyAccountDeletedText(driver);
+        Compair.verifyAccountDeletedText(driver);
     }
 
     public void clickContinueButtonInAccountDelete(){

@@ -5,11 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.io.IOException;
 
-public class accountInformationFormPage {
+public class AccountInformationFormPage {
 
     WebDriver driver;
     boolean actualTitle;
@@ -36,12 +36,12 @@ public class accountInformationFormPage {
     By continue_button_xpath = By.xpath(propertieReader.appConfigReader("continue_button_xpath"));
 
 
-    public accountInformationFormPage(WebDriver driver) throws IOException {
+    public AccountInformationFormPage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
 
     public void verifyTitleVisibility(){
-        actualTitle = compair.verifyEnterAccountInformationTextVisible(driver);
+        actualTitle = Compair.verifyEnterAccountInformationTextVisible(driver);
         //Assert.assertEquals(actualTitle,"Enter Account Information");
         Assert.assertTrue(actualTitle);
     }
@@ -83,7 +83,7 @@ public class accountInformationFormPage {
     }
 
     public void verifyAccountCreatedAndClickContinueButton(){
-        accountCreatedVisibleResult=compair.verifyAccountCreatedText(driver);
+        accountCreatedVisibleResult= Compair.verifyAccountCreatedText(driver);
         Assert.assertTrue(accountCreatedVisibleResult);
 
         driver.findElement(continue_button_xpath).click();

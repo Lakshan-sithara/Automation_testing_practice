@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -22,7 +22,7 @@ public class AllProductPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    compair compair;
+    Compair compair;
 
     String productName;
     String fixedBrandName;
@@ -58,7 +58,7 @@ public class AllProductPage {
     }
 
     public void validateProductPageDetails(Map<String,String>expectedDetails){
-        compair compair = new compair();
+        Compair compair = new Compair();
         compair.validateProductDetails(driver.findElement(productNameElement),expectedDetails.get("name"),"Product Name");
         compair.validateProductDetails(driver.findElement(categaryElement), expectedDetails.get("category"),"Category" );
         compair.validateProductDetails(driver.findElement(priceElement), expectedDetails.get("price"),"Price" );
@@ -148,7 +148,7 @@ public class AllProductPage {
     }
 
     public void verifyBrandText(){
-        boolean result = verify.compair.verifyBrandTitleText(driver);
+        boolean result = Compair.verifyBrandTitleText(driver);
         Assert.assertTrue(result);
     }
 

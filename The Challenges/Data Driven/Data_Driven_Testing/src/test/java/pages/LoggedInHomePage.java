@@ -7,12 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.io.IOException;
 import java.time.Duration;
 
-public class loggedInHomePage {
+public class LoggedInHomePage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -24,13 +24,13 @@ public class loggedInHomePage {
     By continue_button_xpath = By.xpath(propertieReader.appConfigReader("continue_btn_xpath"));
     By logout_button_xpath =  By.xpath(propertieReader.appConfigReader("logout_button_xpath"));
 
-    public loggedInHomePage(WebDriver driver) throws IOException {
+    public LoggedInHomePage(WebDriver driver) throws IOException {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public void verifyUsernameIsVisible(){
-        verifyUsernameResult=compair.isUserLoggedInAs(driver,"ccc");
+        verifyUsernameResult= Compair.isUserLoggedInAs(driver,"ccc");
         Assert.assertTrue(verifyUsernameResult);
     }
 
@@ -41,7 +41,7 @@ public class loggedInHomePage {
     }
 
     public void accountDeletedPage(){
-         accountDeletedResult = compair.verifyAccountDeletedText(driver);
+         accountDeletedResult = Compair.verifyAccountDeletedText(driver);
          Assert.assertTrue(accountDeletedResult);
 
          driver.findElement(continue_button_xpath).click();

@@ -4,9 +4,9 @@ package testcases;
 import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.accountInformationFormPage;
+import pages.AccountInformationFormPage;
 import pages.HomePage;
-import pages.loggedInHomePage;
+import pages.LoggedInHomePage;
 
 import java.io.IOException;
 
@@ -29,12 +29,12 @@ public class TC_01 extends initiateDriver {
         loginPage.clickSignUpButton();
         //Assert.assertTrue(homePage.isHomePageDisplayed());
 
-        accountInformationFormPage AIFPage = new accountInformationFormPage(driver);
+        AccountInformationFormPage AIFPage = new AccountInformationFormPage(driver);
         AIFPage.verifyTitleVisibility();
         AIFPage.fillRegistrationForm();
         AIFPage.verifyAccountCreatedAndClickContinueButton();
 
-        loggedInHomePage loggedInHomePage = new loggedInHomePage(driver);
+        LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);
         loggedInHomePage.verifyUsernameIsVisible();
         /*loggedInHomePage.clickDeleteButton();
         loggedInHomePage.accountDeletedPage();*/

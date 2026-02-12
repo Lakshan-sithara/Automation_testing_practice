@@ -12,7 +12,7 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 import java.util.List;
 
-public class compair {
+public class Compair {
 
     SoftAssert softAssert = new SoftAssert();
 

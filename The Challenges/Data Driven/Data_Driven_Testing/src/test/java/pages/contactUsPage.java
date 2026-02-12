@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import verify.compair;
+import verify.Compair;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -62,7 +62,7 @@ public class contactUsPage {
     }
 
     public void verifySuccessMessage(){
-        boolean result = compair.verifySucsessMessageInContactUs(driver);
+        boolean result = Compair.verifySucsessMessageInContactUs(driver);
         Assert.assertTrue(result);
     }
 

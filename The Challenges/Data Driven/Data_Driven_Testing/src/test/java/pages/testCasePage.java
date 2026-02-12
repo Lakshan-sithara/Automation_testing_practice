@@ -1,7 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import verify.compair;
+import verify.Compair;
 
 public class testCasePage {
 
@@ -12,6 +12,6 @@ public class testCasePage {
     }
 
     public void verifyTestCasesPage(){
-        compair.verifyTestCasesPage(driver,"https://automationexercise.com/test_cases");
+        Compair.verifyTestCasesPage(driver,"https://automationexercise.com/test_cases");
     }
 }

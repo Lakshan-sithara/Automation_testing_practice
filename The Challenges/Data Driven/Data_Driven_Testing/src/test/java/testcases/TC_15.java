@@ -30,12 +30,12 @@ public class TC_15 extends initiateDriver {
         loginPage.enterEmailOnSignUp();
         loginPage.clickSignUpButton();
 
-        accountInformationFormPage accountInformationFormPage = new accountInformationFormPage(driver);
+        AccountInformationFormPage accountInformationFormPage = new AccountInformationFormPage(driver);
         accountInformationFormPage.verifyTitleVisibility();
         accountInformationFormPage.fillRegistrationForm();
         accountInformationFormPage.verifyAccountCreatedAndClickContinueButton();
 
-        loggedInHomePage loggedInHomePage = new loggedInHomePage(driver);
+        LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);
         loggedInHomePage.verifyUsernameIsVisible();
 
         AllProductPage allProductPage = new AllProductPage(driver);
@@ -46,8 +46,8 @@ public class TC_15 extends initiateDriver {
         cartPage.verifyCartPage();
         cartPage.clickCheckoutButton();
 
-        checkOutPage checkOutPage = new checkOutPage(driver);
-        checkOutPage.verifyAddressDetailsAndReviewOrder(addressDetails);
+        CheckOutPage checkOutPage = new CheckOutPage(driver);
+        checkOutPage.verifyDelivaryAddressDetailsAndReviewOrder(addressDetails);
         checkOutPage.enterDiscriptionOnTextArea();
         checkOutPage.clickPlaceOrderButton();
 

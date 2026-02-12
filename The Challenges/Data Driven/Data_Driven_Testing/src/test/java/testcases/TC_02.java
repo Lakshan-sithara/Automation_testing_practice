@@ -4,7 +4,7 @@ import base.initiateDriver;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.HomePage;
-import pages.loggedInHomePage;
+import pages.LoggedInHomePage;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class TC_02 extends initiateDriver {
         loginPage.enterPasswordOnlogin();
         loginPage.clickLoginButton();
 
-        loggedInHomePage loggedInHomePage = new loggedInHomePage(driver);
+        LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);
         loggedInHomePage.verifyUsernameIsVisible();
         loggedInHomePage.clickDeleteButton();
         loggedInHomePage.accountDeletedPage();

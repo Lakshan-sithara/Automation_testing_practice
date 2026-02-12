@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import verify.compair;
+import verify.Compair;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -22,20 +22,20 @@ public class CartPage {
     }
 
     public void verifyCartPage(){
-        compair.verifyCartPage(driver);
+        Compair.verifyCartPage(driver);
     }
 
     public void verifyItemAddedToCart(HashMap <String,String> ItemName){
         for (Map.Entry<String, String> entry : ItemName.entrySet()) {
             String item = entry.getValue();
             if (item != null) {
-                compair.verifyAddedCartItems(driver, item);
+                Compair.verifyAddedCartItems(driver, item);
             }
         }
     }
 
     public void validateProductDetails(String price,String quantity,String itemName,String total_price){
-        compair compair = new compair();
+        Compair compair = new Compair();
 
         compair.compairDetails(driver.findElement(By.xpath("//p[text()='"+price+"']")),price,"price");
         compair.compairDetails(driver.findElement(By.xpath("//a[text()='"+itemName+"']/parent::h4/parent::td/following-sibling::td/button[text()='"+quantity+"']")),
@@ -56,7 +56,7 @@ public class CartPage {
 
     public void removeProductAndVerify(String productName){
         driver.findElement(By.xpath("//a[text()='"+productName+"']/parent::h4/parent::td/following-sibling::td/a[@class='cart_quantity_delete']")).click();
-        compair.verifyRemovedProduct(driver,productName);
+        Compair.verifyRemovedProduct(driver,productName);
     }
 
 
