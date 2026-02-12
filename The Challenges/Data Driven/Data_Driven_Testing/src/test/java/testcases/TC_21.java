@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
 import pages.ProductDetailsPage;
@@ -8,7 +8,7 @@ import pages.HomePage;
 
 import java.io.IOException;
 
-public class TC_21 extends initiateDriver {
+public class TC_21 extends InitiateDriver {
 
     @Test
     public void addReviewOnProduct() throws IOException {

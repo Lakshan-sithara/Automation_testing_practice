@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.HomePage;
@@ -9,7 +9,7 @@ import pages.LoggedInHomePage;
 import java.io.IOException;
 
 
-public class TC_02 extends initiateDriver {
+public class TC_02 extends InitiateDriver {
 
     @Test
     public void loginUserWithCorrectcredintials() throws IOException {

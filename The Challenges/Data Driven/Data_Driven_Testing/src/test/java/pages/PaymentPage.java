@@ -11,11 +11,11 @@ import verify.Compair;
 import java.time.Duration;
 import java.util.HashMap;
 
-public class paymentPage {
+public class PaymentPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    public paymentPage(WebDriver driver){
+    public PaymentPage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
@@ -45,8 +45,12 @@ public class paymentPage {
         Compair.verifyAccountDeletedText(driver);
     }
 
-    public void clickContinueButtonInAccountDelete(){
+    public void clickContinueButton(){
         driver.findElement(By.xpath("//a[text()='Continue']")).click();
+    }
+
+    public void clickDownloadInvoiceButton(){
+        driver.findElement(By.xpath("//a[text()='Download Invoice']")).click();
     }
 
 }

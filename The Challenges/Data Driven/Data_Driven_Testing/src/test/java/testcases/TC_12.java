@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
 import pages.CartPage;
@@ -9,7 +9,7 @@ import pages.HomePage;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class TC_12 extends initiateDriver {
+public class TC_12 extends InitiateDriver {
 
     @Test
     public void addProductInCart() throws IOException {

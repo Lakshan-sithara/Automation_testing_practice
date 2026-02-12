@@ -46,7 +46,7 @@ public class AccountInformationFormPage {
         Assert.assertTrue(actualTitle);
     }
 
-    public void fillRegistrationForm() throws IOException {
+    public void fillRegistrationFormAndContinue() throws IOException {
 
         driver.findElement(title_RadioButton_xpath).click();
 

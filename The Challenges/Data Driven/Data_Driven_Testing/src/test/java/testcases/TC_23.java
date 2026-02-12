@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import library.jsonDataReader;
 import org.testng.annotations.Test;
 import pages.*;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TC_23 extends initiateDriver {
+public class TC_23 extends InitiateDriver {
 
     @Test
     public void verifyAddressDetailsInCheckoutPage() throws IOException {
@@ -29,7 +29,7 @@ public class TC_23 extends initiateDriver {
         loginPage.clickSignUpButton();
 
         AccountInformationFormPage accountInformationFormPage = new AccountInformationFormPage(driver);
-        accountInformationFormPage.fillRegistrationForm();
+        accountInformationFormPage.fillRegistrationFormAndContinue();
         accountInformationFormPage.verifyAccountCreatedAndClickContinueButton();
 
         LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);

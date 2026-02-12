@@ -1,13 +1,13 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
 import pages.HomePage;
 
 import java.io.IOException;
 
-public class TC_09 extends initiateDriver {
+public class TC_09 extends InitiateDriver {
 
     @Test
     public void searchProduct() throws IOException {

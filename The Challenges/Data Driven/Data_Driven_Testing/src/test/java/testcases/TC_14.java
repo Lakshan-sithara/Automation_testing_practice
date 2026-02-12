@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import library.jsonDataReader;
 import org.testng.annotations.Test;
 import pages.*;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TC_14 extends initiateDriver {
+public class TC_14 extends InitiateDriver {
 
     @Test
     public void placeOrder_RegisterWhileCheckout() throws IOException, InterruptedException {
@@ -39,7 +39,7 @@ public class TC_14 extends initiateDriver {
         loginPage.clickSignUpButton();
 
         AccountInformationFormPage accountInformationFormPage = new AccountInformationFormPage(driver);
-        accountInformationFormPage.fillRegistrationForm();
+        accountInformationFormPage.fillRegistrationFormAndContinue();
         accountInformationFormPage.verifyAccountCreatedAndClickContinueButton();
 
         LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);
@@ -53,13 +53,13 @@ public class TC_14 extends initiateDriver {
         checkOutPage.enterDiscriptionOnTextArea();
         checkOutPage.clickPlaceOrderButton();
 
-        paymentPage paymentPage = new paymentPage(driver);
+        PaymentPage paymentPage = new PaymentPage(driver);
         paymentPage.enterPaymentDetails(paymentDetails);
         paymentPage.clickPayAndConfirmOrderButton();
         paymentPage.verifySucessMessage();
         paymentPage.clickDeleteAccountButton();
         paymentPage.verifyDeleteAccountMessage();
-        paymentPage.clickContinueButtonInAccountDelete();
+        paymentPage.clickContinueButton();
 
     }
 

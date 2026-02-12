@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import library.jsonDataReader;
 import org.testng.annotations.Test;
 import pages.*;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TC_16 extends initiateDriver {
+public class TC_16 extends InitiateDriver {
 
     @Test
     public void placeOrderLoginBeforeCheckout() throws IOException {
@@ -48,7 +48,7 @@ public class TC_16 extends initiateDriver {
         checkOutPage.enterDiscriptionOnTextArea();
         checkOutPage.clickPlaceOrderButton();
 
-        paymentPage paymentPage = new paymentPage(driver);
+        PaymentPage paymentPage = new PaymentPage(driver);
         paymentPage.enterPaymentDetails(paymentDetails);
         paymentPage.clickPayAndConfirmOrderButton();
         paymentPage.verifySucessMessage();

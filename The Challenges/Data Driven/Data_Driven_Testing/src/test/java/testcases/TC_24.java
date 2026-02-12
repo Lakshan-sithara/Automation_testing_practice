@@ -9,34 +9,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TC_15 extends InitiateDriver {
+public class TC_24 extends InitiateDriver {
 
     @Test
-    public void placeOrderRegisterBeforeCheckout() throws IOException {
+    public void downloadInvoiceAfterPurchaseOrder() throws IOException, InterruptedException {
 
-        // load all data from JSON
         Map<String,Object> allData = jsonDataReader.getTestData();
-
-        // extract specific hashMap
         HashMap<String,String> addressDetails = (HashMap<String, String>) allData.get("addressDetails");
         HashMap<String,String> paymentDetails = (HashMap<String, String>) allData.get("paymentDetails");
 
         HomePage homePage = new HomePage(driver);
         homePage.verifyHomePage();
-        homePage.clickLoginSigninButton();
-
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUsernameOnSignUp();
-        loginPage.enterEmailOnSignUp();
-        loginPage.clickSignUpButton();
-
-        AccountInformationFormPage accountInformationFormPage = new AccountInformationFormPage(driver);
-        accountInformationFormPage.verifyTitleVisibility();
-        accountInformationFormPage.fillRegistrationFormAndContinue();
-        accountInformationFormPage.verifyAccountCreatedAndClickContinueButton();
-
-        LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);
-        loggedInHomePage.verifyUsernameIsVisible();
 
         AllProductPage allProductPage = new AllProductPage(driver);
         allProductPage.hoverOverItemAndAddToCart("Blue Top");
@@ -44,6 +27,22 @@ public class TC_15 extends InitiateDriver {
 
         CartPage cartPage = new CartPage(driver);
         cartPage.verifyCartPage();
+        cartPage.clickCheckoutButton();
+        cartPage.clickRegisterAndLoginButton();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsernameOnSignUp();
+        loginPage.enterEmailOnSignUp();
+        loginPage.clickSignUpButton();
+
+        AccountInformationFormPage accountInformationFormPage = new AccountInformationFormPage(driver);
+        accountInformationFormPage.fillRegistrationFormAndContinue();
+        accountInformationFormPage.verifyAccountCreatedAndClickContinueButton();
+
+        LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);
+        loggedInHomePage.verifyUsernameIsVisible();
+        homePage.clickCartButton();
+
         cartPage.clickCheckoutButton();
 
         CheckOutPage checkOutPage = new CheckOutPage(driver);
@@ -55,8 +54,13 @@ public class TC_15 extends InitiateDriver {
         paymentPage.enterPaymentDetails(paymentDetails);
         paymentPage.clickPayAndConfirmOrderButton();
         paymentPage.verifySucessMessage();
+        paymentPage.clickDownloadInvoiceButton();
+        Thread.sleep(2000);
+        paymentPage.clickContinueButton();
         paymentPage.clickDeleteAccountButton();
-        paymentPage.verifyDeleteAccountMessage();
+        paymentPage.clickContinueButton();
+
+
 
     }
 

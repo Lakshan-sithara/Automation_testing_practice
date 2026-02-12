@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
 import pages.CartPage;
@@ -8,7 +8,7 @@ import pages.HomePage;
 
 import java.io.IOException;
 
-public class TC_17 extends initiateDriver {
+public class TC_17 extends InitiateDriver {
 
     @Test
     public void removeProductFromCart() throws IOException {

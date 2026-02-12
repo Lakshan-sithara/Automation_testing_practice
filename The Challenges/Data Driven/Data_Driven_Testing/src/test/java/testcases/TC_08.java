@@ -1,6 +1,6 @@
 package testcases;
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import org.testng.annotations.Test;
 import pages.AllProductPage;
 import pages.HomePage;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TC_08 extends initiateDriver {
+public class TC_08 extends InitiateDriver {
 
     @Test
     public void verifyAllProductsAndProductDetailPage() throws IOException {

@@ -1,7 +1,7 @@
 package testcases;
 
 
-import base.initiateDriver;
+import base.InitiateDriver;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.AccountInformationFormPage;
@@ -10,7 +10,7 @@ import pages.LoggedInHomePage;
 
 import java.io.IOException;
 
-public class TC_01 extends initiateDriver {
+public class TC_01 extends InitiateDriver {
 
 
 
@@ -31,7 +31,7 @@ public class TC_01 extends initiateDriver {
 
         AccountInformationFormPage AIFPage = new AccountInformationFormPage(driver);
         AIFPage.verifyTitleVisibility();
-        AIFPage.fillRegistrationForm();
+        AIFPage.fillRegistrationFormAndContinue();
         AIFPage.verifyAccountCreatedAndClickContinueButton();
 
         LoggedInHomePage loggedInHomePage = new LoggedInHomePage(driver);
