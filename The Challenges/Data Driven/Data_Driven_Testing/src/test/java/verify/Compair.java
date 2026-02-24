@@ -233,6 +233,13 @@ public class Compair {
         return result;
     }
 
+    public static boolean verifyFullFledgedPracticeWebsiteForAutomationEngineersText(WebDriver driver){
+        boolean result = driver.findElement(
+                By.xpath("//h2[text()='Full-Fledged practice website for Automation Engineers']")).isDisplayed();
+        return result;
+    }
+
+
 
 
 }

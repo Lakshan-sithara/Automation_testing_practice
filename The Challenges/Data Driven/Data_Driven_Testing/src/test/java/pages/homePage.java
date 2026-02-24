@@ -24,6 +24,7 @@ public class HomePage {
     By testCasesButton = By.xpath(propertieReader.appConfigReader("testCasesButton_xpath"));
     By productButton = By.xpath(propertieReader.appConfigReader("productButton_xpath"));
     By cartButton = By.xpath(propertieReader.appConfigReader("cartButton_xpath"));
+    By sscrollUpButtonID = By.id(propertieReader.appConfigReader("arrowAtBottomRightSide_id"));
 
 
     public HomePage(WebDriver driver) throws IOException {
@@ -124,6 +125,18 @@ public class HomePage {
         );
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", addToCart);
+    }
+
+    public void clickOnArrowAtBottomRightSide(){
+        driver.findElement(sscrollUpButtonID).click();
+    }
+
+    public void verifyPageIsScrolledUp(){
+        verifyCategoryVisibility();
+    }
+
+    public void verifyFullFledgedPracticeWebsiteForAutomationEngineersText(){
+        Compair.verifyFullFledgedPracticeWebsiteForAutomationEngineersText(driver);
     }
 
 
