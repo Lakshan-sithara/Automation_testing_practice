@@ -20,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../../.." value="The_Challenge-The_Dynamic_E-Commerce_Workflow" />
+        <entry key="$PROJECT_DIR$/../../.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -92,6 +92,7 @@
     "TestNG.TC_25.executor": "Run",
     "TestNG.TC_26.executor": "Run",
     "TestNG.testNG.executor": "Run",
+    "git-widget-placeholder": "The__Challenge-The__Dynamic__E-Commerce__Workflow",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/DELL/Desktop/GitHub/Automation_testing_practice/The Challenges/Data Driven/Data_Driven_Testing",
