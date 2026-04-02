@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce72f5c-415e-4727-9896-2b1d72ca8463" name="Changes" comment="" />
+    <list default="true" id="cce72f5c-415e-4727-9896-2b1d72ca8463" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +94,7 @@
     "TestNG.TC_25.executor": "Run",
     "TestNG.TC_26.executor": "Run",
     "TestNG.testNG.executor": "Run",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/DELL/Desktop/GitHub/Automation_testing_practice/The Challenges/Data Driven/Data_Driven_Testing",
