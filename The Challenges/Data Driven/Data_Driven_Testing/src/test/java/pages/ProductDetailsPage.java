@@ -1,0 +1,82 @@
+package pages;
+
+import library.propertieReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import verify.Compair;
+
+import java.io.IOException;
+import java.time.Duration;
+
+public class ProductDetailsPage {
+
+    WebDriver driver;
+    WebDriverWait wait;
+
+    By setQuantityTextFieldElement = By.xpath(propertieReader.appConfigReader("setQuantity_Textbox_xpath"));
+    By addToCartButtonElement = By.xpath(propertieReader.appConfigReader("addToCart_Button_xpath"));
+    By viewCartButtonElement = By.xpath(propertieReader.appConfigReader("viewCartButton_xpath"));
+
+
+    public ProductDetailsPage(WebDriver driver) throws IOException {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    }
+
+    public void verifyProductDetailsPage(String productName){
+        Compair.verifyProductDetailsPage(driver,productName);
+    }
+
+    public void setQuantity(int quantity){
+        WebElement quantityCount = driver.findElement(setQuantityTextFieldElement);
+        quantityCount.clear();
+        quantityCount.sendKeys(String.valueOf(quantity));
+    }
+
+    public void clickAddToCartButton(){
+        driver.findElement(addToCartButtonElement).click();
+    }
+
+    public void clickViewCartButton(){
+        WebElement viewCartButton = wait.until(ExpectedConditions.elementToBeClickable
+                (driver.findElement(viewCartButtonElement)));
+        viewCartButton.click();
+    }
+
+    public void validateProductQuantity(String quantity){
+        Compair compair = new Compair();
+        compair.compairDetails(driver.findElement(By.xpath("//button[text()='"+quantity+"']")),quantity,"quantity" );
+
+        compair.assertAllDetails();
+    }
+
+    public void verifyWriteYourReviewText(){
+        Assert.assertTrue(Compair.writeYourReview(driver));
+
+    }
+
+    public void enterNameOnReview(String name){
+        driver.findElement(By.id("name")).sendKeys(name);
+    }
+
+    public void enterEmailOnReview(String email){
+        driver.findElement(By.id("email")).sendKeys(email);
+    }
+
+    public void enterDetailsOnReviewSection(String review){
+        driver.findElement(By.id("review")).sendKeys(review);
+    }
+
+    public void clickReviewSubmitButton(){
+        driver.findElement(By.id("button-review")).click();
+    }
+
+    public void verifyReviewSuccessMessage(){
+        Assert.assertTrue(Compair.verifyReviewSuccessMessage(driver));
+    }
+
+}
